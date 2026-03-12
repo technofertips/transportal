@@ -1,0 +1,58 @@
+===================================================================================
+                       TECHNOFER - TRANSPARÊNCIA PÚBLICA                           
+                    RELATÓRIO DE ACOMPANHAMENTO MENSAL                             
+===================================================================================
+
+CLIENTE: Prefeitura Municipal de Brás Pires - MG
+DATA DE EMISSÃO: 12/03/2026 09:17
+RESPONSÁVEL TÉCNICO: Fernando Tadeu Santos Silva
+
+-----------------------------------------------------------------------------------
+1. RESUMO ESTATÍSTICO DOS CRITÉRIOS (PNTP)
+-----------------------------------------------------------------------------------
+CLASSIFICAÇÃO  | DIMENSÃO AVALIADA           | STATUS DE CONFORMIDADE
+-----------------------------------------------------------------------------------
+ESSENCIAL      | Recursos Humanos (Folha)    | [   ] ATENDIDA     [ X ] NÃO ATENDIDA
+ESSENCIAL      | Despesas (Empenhos/Pagos)   | [   ] ATENDIDA     [ X ] NÃO ATENDIDA
+-----------------------------------------------------------------------------------
+* Critério para Atendimento: Dados do mês anterior publicados até o dia 15 do mês atual.
+
+-----------------------------------------------------------------------------------
+2. DETALHAMENTO TÉCNICO (DADOS EM TEMPO REAL)
+-----------------------------------------------------------------------------------
+   - Módulo de Pessoal (RH):      Último mês publicado no Banco de Dados: 1/2026
+   - Módulo de Despesas/Empenhos: Último mês publicado no Banco de Dados: 12/2025
+
+   [ALERTA DE SISTEMA]: A varredura via intercepção de API detectou que o portal
+   público mascara as informações através do botão de exportação, gerando arquivos 
+   zerados. A responsabilidade solidária exige correção imediata junto à empresa 
+   fornecedora do software.
+
+===================================================================================
+                MINUTA DE OFÍCIO AO CONTROLE INTERNO (SUGESTÃO)
+===================================================================================
+OFÍCIO Nº 001/2026
+Brás Pires - MG, 12 de March de 2026
+
+Ao Sr(a). Controlador(a) Interno(a),
+Assunto: Solicitação de Publicação de Informações do Portal da Transparência
+
+Prezado(a) Senhor(a),
+
+Considerando os apontamentos identificados no Relatório de Acompanhamento de 
+Transparência Pública referente ao mês atual, informamos que ainda não constam 
+publicadas de forma regular as seguintes informações:
+
+- Folha de Pagamento (Atualização pendente: Defasagem detectada)
+- Relação de Despesas e Empenhos (Última competência real: 12/2025)
+
+Em conformidade com os princípios da responsabilidade solidária estabelecidos pelos 
+Tribunais de Contas, solicitamos que as referidas informações sejam regularizadas 
+no Portal da Transparência no prazo máximo de 5 dias úteis, evitando assim possíveis 
+sanções à gestão municipal e aos responsáveis diretos.
+
+Atenciosamente,
+
+___________________________________________________
+Assessoria de Transparência - Technofer
+===================================================================================

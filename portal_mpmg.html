@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Transparência - Brás Pires/MG</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 0; }
+        header { background-color: #004b87; color: white; padding: 20px; text-align: center; border-bottom: 5px solid #00a859; }
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { margin: 0; font-size: 24px; }
+        h2 { color: #004b87; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 30px; }
+        .alert { background-color: #e8f4fd; border-left: 5px solid #004b87; padding: 15px; margin-bottom: 20px; font-size: 14px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { border: 1px solid #ddd; padding: 15px; border-radius: 5px; background: #fafafa; }
+        .card h3 { margin-top: 0; color: #d9534f; font-size: 16px; }
+        .card.success h3 { color: #5cb85c; }
+        .btn { display: inline-block; padding: 10px 15px; background-color: #00a859; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px; }
+        .btn:hover { background-color: #008244; }
+        .btn-disabled { background-color: #ccc; cursor: not-allowed; }
+        footer { text-align: center; margin-top: 40px; font-size: 12px; color: #777; padding: 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Prefeitura Municipal de Brás Pires - MG</h1>
+    <p>Painel de Atendimento a Órgãos de Controlo (Ref: MPMG-0657.18.000028-0)</p>
+</header>
+
+<div class="container">
+    <div class="alert">
+        <strong>Atualização Automática:</strong> Esta página consolida as exigências legais do Ministério Público. Última sincronização de dados efetuada em: <b>12/03/2026 09:38</b>.
+    </div>
+
+    <h2>1. Dados Dinâmicos (Relatórios em Formato Excel - XLSX)</h2>
+    <p>Ficheiros detalhados recuperados da base de dados e formatados para análise do MPMG (Lei 131/2009).</p>
+    
+    <div class="grid">
+        <div class="card success">
+            <h3>&#10004; Despesas, Empenhos e Diárias</h3>
+            <p><strong>Exigências MPMG:</strong> Itens 4, 5 e 6.</p>
+            <p><strong>Competência:</strong> 12/2025</p>
+            <a href="empenhos_reais_braspires_2025_12.xlsx" class="btn" download>&#128202; Descarregar Relatório (Excel)</a>
+        </div>
+        
+        <div class="card success">
+            <h3>&#10004; Recursos Humanos (Folha)</h3>
+            <p><strong>Exigência MPMG:</strong> Item 7.</p>
+            <p><strong>Competência:</strong> 1/2026</p>
+            <a href="folha_real_braspires_2026_1.xlsx" class="btn" download>&#128202; Descarregar Relatório (Excel)</a>
+        </div>
+    </div>
+
+    <h2>2. Informações Estruturais (Ficheiros Estáticos)</h2>
+    <p>Documentação pendente de envio pelos respetivos setores internos da Autarquia.</p>
+    
+    <div class="grid">
+        <div class="card">
+            <h3>&#9888; Legislação e Orçamento (LOA/LDO)</h3>
+            <p><strong>Exigências MPMG:</strong> Itens 1 e 2.</p>
+            <p>Status: A aguardar PDFs da Câmara/Contabilidade.</p>
+            <a href="#" class="btn btn-disabled">Aguardar Documento</a>
+        </div>
+        
+        <div class="card">
+            <h3>&#9888; Balanço Anual e RGF</h3>
+            <p><strong>Exigência MPMG:</strong> Item 3.</p>
+            <p>Status: A aguardar fecho contabilisticos.</p>
+            <a href="#" class="btn btn-disabled">Aguardar Documento</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    Desenvolvido com tecnologia de extração e auditoria independente. <br>
+    Assegurado por: Fernando Tadeu Santos Silva
+</footer>
+
+</body>
+</html>

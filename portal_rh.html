@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos Humanos | Technofer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body { background-color: #f8f9fc; font-family: 'Segoe UI', Roboto, sans-serif; }
+        .sidebar { background: #003366; min-height: 100vh; color: #fff; padding-top: 20px; }
+        .sidebar .brand { font-size: 1.5rem; font-weight: bold; text-align: center; margin-bottom: 30px; color: #00d2ff; }
+        .sidebar a { color: #c2c7d0; text-decoration: none; display: block; padding: 12px 20px; margin: 5px 15px; border-radius: 5px; transition: 0.3s; }
+        .sidebar a:hover, .sidebar a.active { background: #00d2ff; color: #003366; font-weight: bold; }
+        .content-area { padding: 30px; }
+        .topbar { background: white; padding: 15px 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .card-table { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 20px; border-top: 4px solid #28a745; }
+        .filtros-box { background: #f1f5f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+        .filtros-box label { font-size: 0.8rem; font-weight: bold; color: #475569; text-transform: uppercase; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sidebar d-none d-md-block">
+            <div class="brand"><i class="fa-solid fa-shield-halved"></i> TRANS<span style="color:white;">PORTAL</span></div>
+            <p class="text-center text-muted small mb-4">Brás Pires - MG</p>
+            <a href="portal_premium.html"><i class="fa-solid fa-money-bill-wave"></i> Despesas (Empenhos)</a>
+            <a href="portal_rh.html" class="active"><i class="fa-solid fa-users"></i> Recursos Humanos</a>
+            <hr class="text-white-50 my-4" style="width: 80%; margin: 0 auto;">
+            <a href="relatorio_executivo.html" target="_blank" class="text-warning mt-3" style="font-weight: bold; border: 1px dashed #ffc107;">
+                <i class="fa-solid fa-file-signature"></i> Dossiê MPMG (Painel)
+            </a>
+        </div>
+
+        <div class="col-md-10 content-area">
+            <div class="topbar">
+                <div>
+                    <h4 class="mb-0 text-dark">Folha de Pagamento</h4>
+                    <small class="text-muted" id="data-atualizacao">A atualizar...</small>
+                </div>
+                <div><span class="badge bg-success"><i class="fa-solid fa-check-circle"></i> Sincronizado</span></div>
+            </div>
+
+            <div class="card-table">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0 text-secondary">Relação de Servidores</h5>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-download"></i> Exportar Dados (TCE)
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="exportarDados('xlsx')"><i class="fa-solid fa-file-excel text-success"></i> Excel (.xlsx)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="exportarDados('csv')"><i class="fa-solid fa-file-csv text-primary"></i> Tabela Aberta (.csv)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="exportarDados('txt')"><i class="fa-solid fa-file-lines text-secondary"></i> Texto Limpo (.txt)</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filtros-box">
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <label><i class="fa-solid fa-magnifying-glass"></i> Buscar Servidor</label>
+                            <input type="text" id="filtroDesc" class="form-control form-control-sm" placeholder="Nome do funcionário, Cargo ou Matrícula...">
+                        </div>
+                        <div class="col-md-3">
+                            <label><i class="fa-regular fa-calendar-check"></i> Mês</label>
+                            <select id="filtroMes" class="form-select form-select-sm">
+                                <option value="">Todos os Meses</option>
+                                <option value="01">Janeiro</option><option value="02">Fevereiro</option>
+                                <option value="03">Março</option><option value="04">Abril</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label><i class="fa-regular fa-calendar"></i> Ano</label>
+                            <select id="filtroAno" class="form-select form-select-sm">
+                                <option value="">Todos os Anos</option>
+                                <option value="2026">2026</option><option value="2025">2025</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Ref.</th>
+                                <th>Matrícula</th>
+                                <th>Nome do Servidor</th>
+                                <th>Cargo</th>
+                                <th>Bruto (R$)</th>
+                                <th>Líquido (R$)</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaCorpo"></tbody>
+                    </table>
+                </div>
+                <div class="mt-3 text-muted small" id="contadorRegistros">A carregar...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="dados_rh.js"></script>
+<script>
+    let dadosAtuaisNaTela = []; 
+
+    const formatarMoeda = (valor) => {
+        let n = parseFloat(valor);
+        return isNaN(n) ? "R$ 0,00" : n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    };
+
+    const renderizarTabela = (dados) => {
+        dadosAtuaisNaTela = dados; 
+        const corpo = document.getElementById('tabelaCorpo');
+        corpo.innerHTML = '';
+        if(!dados || dados.length === 0) return corpo.innerHTML = '<tr><td colspan="7" class="text-center py-4 text-muted">Nenhum servidor encontrado com estes filtros.</td></tr>';
+
+        dados.slice(0, 100).forEach(l => {
+            const tr = document.createElement('tr');
+            const urlDetalhes = `detalhes_rh.html?mat=${l.Matricula}&data=${l.Data}`;
+            
+            tr.innerHTML = `
+                <td><span class="badge bg-secondary">${l.Data || '-'}</span></td>
+                <td><b>${l.Matricula || '-'}</b></td>
+                <td>${l.Nome || '-'}</td>
+                <td><small>${l.Cargo || '-'}</small></td>
+                <td class="text-primary">${formatarMoeda(l.Bruto)}</td>
+                <td class="text-success fw-bold">${formatarMoeda(l.Liquido)}</td>
+                <td><a href="${urlDetalhes}" class="btn btn-sm btn-outline-success" target="_blank"><i class="fa-solid fa-file-invoice-dollar"></i> Detalhes</a></td>
+            `;
+            corpo.appendChild(tr);
+        });
+        document.getElementById('contadorRegistros').innerText = `Exibindo ${Math.min(100, dados.length)} de ${dados.length} servidores filtrados.`;
+    };
+
+    const aplicarFiltros = () => {
+        if (typeof dadosRH === 'undefined') return;
+        const busca = document.getElementById('filtroDesc').value.toLowerCase().trim();
+        const mesSel = document.getElementById('filtroMes').value;
+        const anoSel = document.getElementById('filtroAno').value;
+
+        const filtrados = dadosRH.filter(item => {
+            const dataItem = item.Data || ""; 
+            const partes = dataItem.split('/');
+            const mesItem = partes[0] || "";
+            const anoItem = partes[1] || "";
+
+            const matchTexto = !busca || ((item.Nome || '') + (item.Cargo || '') + (item.Matricula || '')).toLowerCase().includes(busca);
+            const matchMes = !mesSel || (mesItem === mesSel);
+            const matchAno = !anoSel || (anoItem === anoSel);
+
+            return matchTexto && matchMes && matchAno;
+        });
+        renderizarTabela(filtrados);
+    };
+
+    window.exportarDados = (f) => {
+        if(dadosAtuaisNaTela.length === 0) return alert("Sem dados para exportar.");
+        
+        if(f === 'xlsx') {
+            const ws = XLSX.utils.json_to_sheet(dadosAtuaisNaTela);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Servidores");
+            XLSX.writeFile(wb, "folha_pagamento_bras_pires.xlsx");
+        } else {
+            let txt = "Data;Matricula;Nome;Cargo;Secretaria;Bruto;Liquido\n";
+            txt += dadosAtuaisNaTela.map(d => `${d.Data};${d.Matricula};"${d.Nome}";"${d.Cargo}";"${d.Secretaria}";${d.Bruto};${d.Liquido}`).join('\n');
+            const blob = new Blob(["\ufeff" + txt], { type: "text/csv;charset=utf-8" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `extracao_rh.${f}`;
+            link.click();
+        }
+    };
+
+    document.getElementById('filtroDesc').addEventListener('input', aplicarFiltros);
+    document.getElementById('filtroMes').addEventListener('change', aplicarFiltros);
+    document.getElementById('filtroAno').addEventListener('change', aplicarFiltros);
+
+    window.onload = () => {
+        if(typeof dadosRH !== 'undefined') {
+            renderizarTabela(dadosRH);
+            if(typeof dataSincronizacaoRH !== 'undefined') 
+                document.getElementById('data-atualizacao').innerHTML = `<i class="fa-solid fa-clock"></i> Atualizado em: <b>${dataSincronizacaoRH}</b>`;
+        }
+    };
+</script>
+</body>
+</html>

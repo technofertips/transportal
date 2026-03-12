@@ -1,0 +1,69 @@
+===================================================================================
+                       TECHNOFER - TRANSPARÊNCIA PÚBLICA                           
+              RELATÓRIO DE CONFORMIDADE E RESPOSTA A ÓRGÃOS DE CONTROLE            
+===================================================================================
+
+CLIENTE: Prefeitura Municipal de Brás Pires - MG
+DATA DE EMISSÃO: 12/03/2026 09:24
+RESPONSÁVEL TÉCNICO: Fernando Tadeu Santos Silva
+
+REFERÊNCIA LEGAL: Procedimento Administrativo nº MPMG-0657.18.000028-0
+ÓRGÃO FISCALIZADOR: Ministério Público de Minas Gerais (MPMG)
+
+-----------------------------------------------------------------------------------
+1. STATUS DE ATUALIZAÇÃO DOS MÓDULOS ESSENCIAIS (DADOS VIA API TECHNOFER)
+-----------------------------------------------------------------------------------
+   - Módulo de Pessoal (RH):      Última competência real rastreada: 1/2026
+   - Módulo de Despesas/Empenhos: Última competência real rastreada: 12/2025
+
+   [PARECER]: Os dados brutos constam no banco de dados, evidenciando falha técnica 
+   do sistema atual (SiplanWeb) na exportação das informações para o cidadão e para 
+   o MPMG. A plataforma Technofer já extraiu a base real para regularização.
+
+-----------------------------------------------------------------------------------
+2. CHECKLIST DE PENDÊNCIAS CRÍTICAS APONTADAS PELO MPMG (CERTIDÃO)
+-----------------------------------------------------------------------------------
+Abaixo, os itens notificados como "NÃO IDENTIFICADOS" na última fiscalização, que 
+exigem ação imediata da gestão para evitar sanções de Improbidade Administrativa:
+
+[ X ] 1. Link de acesso a toda a legislação municipal atualizada.
+[ X ] 2. Link de acesso à Lei Orçamentária Anual (LOA).
+[ X ] 3. Apresentação do balanço anual e demonstrações contábeis.
+[ X ] 4. Relatórios da execução orçamentária e gestão fiscal.
+[ X ] 5. Registro dos convênios celebrados e seus aditivos.
+[ X ] 6. Registro detalhado de auxílios, verbas indenizatórias e diárias.
+[ X ] 7. Relatório mensal da despesa com pessoal.
+[ X ] 8. FAQ (Perguntas mais frequentes da sociedade).
+
+-----------------------------------------------------------------------------------
+3. PLANO DE AÇÃO E REGULARIZAÇÃO IMEDIATA
+-----------------------------------------------------------------------------------
+Através da implantação da Assessoria Technofer, garantimos a parametrização total 
+desses 8 pontos críticos junto aos setores responsáveis (RH, Contabilidade, e 
+Licitações) no prazo de 30 dias, protocolando a resposta de adequação diretamente 
+na Promotoria de Justiça da Comarca de Senador Firmino.
+
+===================================================================================
+                   MINUTA DE OFÍCIO DE ADEQUAÇÃO AO MPMG
+===================================================================================
+OFÍCIO Nº 002/2026
+Brás Pires - MG, 12 de March de 2026
+
+À Exma. Sra. Promotora de Justiça da Comarca de Senador Firmino,
+Ref.: PA nº MPMG-0657.18.000028-0
+
+Cumprimentando-a cordialmente, sirvo-me do presente para informar que o Município 
+de Brás Pires, visando a total adequação aos apontamentos constantes na Certidão 
+emitida por este Douto Órgão, iniciou processo de modernização e auditoria de seu 
+Portal da Transparência. 
+
+Informamos que as falhas de exportação de dados (arquivos zerados) e as omissões 
+de links estruturais já estão sendo sanadas, visando garantir o irrestrito acesso 
+à informação conforme determina a Lei 12.527/2011.
+
+Atenciosamente,
+
+___________________________________________________
+Prefeito Municipal de Brás Pires
+(Apoiado por Technofer Inteligência de Dados)
+===================================================================================
